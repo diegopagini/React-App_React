@@ -1,8 +1,8 @@
 /** @format */
 import { BrowserRouter, Navigate, NavLink, Route, Routes } from 'react-router-dom';
 
-import { LazyPage1, LazyPage2, LazyPage3 } from '../01-layload/pages';
 import logo from '../logo.svg';
+import { routes } from './routes';
 
 export const Navigation = () => {
 	return (
@@ -11,28 +11,21 @@ export const Navigation = () => {
 				<nav>
 					<img src={logo} alt='React Logo' />
 					<ul>
-						<li>
-							<NavLink to='/lazy1' className={({ isActive }) => (isActive ? 'nav-active' : '')}>
-								Lazy 1
-							</NavLink>
-						</li>
-						<li>
-							<NavLink to='/lazy2' className={({ isActive }) => (isActive ? 'nav-active' : '')}>
-								Lazy 2
-							</NavLink>
-						</li>
-						<li>
-							<NavLink to='/lazy3' className={({ isActive }) => (isActive ? 'nav-active' : '')}>
-								Lazy 3
-							</NavLink>
-						</li>
+						{routes.map(({ to, name }) => (
+							<li>
+								<NavLink to={to} className={({ isActive }) => (isActive ? 'nav-active' : '')}>
+									{name}
+								</NavLink>
+							</li>
+						))}
 					</ul>
 				</nav>
 
 				<Routes>
-					<Route path='lazy1' element={<LazyPage1 />} />
-					<Route path='lazy2' element={<LazyPage2 />} />
-					<Route path='lazy3' element={<LazyPage3 />} />
+					{routes.map(({ path, Component }) => (
+						<Route path={path} element={<Component />} />
+					))}
+
 					<Route path='/*' element={<Navigate to='/lazy1' replace />} />
 				</Routes>
 			</div>
