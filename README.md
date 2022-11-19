@@ -149,3 +149,43 @@ export const routes: Route[] = [
 	},
 ];
 ```
+
+# Compund Component Pattern
+
+```javascript
+const product = {
+	id: '1',
+	title: 'Coffee Mug - Card',
+	img: './coffee-mug.png',
+};
+
+export const ShoppingPage = () => {
+	return (
+		<div>
+			<h1>Shopping Store</h1>
+			<hr />
+
+			<div
+				style={{
+					display: 'flex',
+					flexDirection: 'row',
+					flexWrap: 'wrap',
+					gap: '1rem',
+				}}>
+				{/* Differents ways to do it. */}
+				<ProductCard product={product}>
+					<ProductCard.Image />
+					<ProductCard.Title />
+					<ProductCard.Buttons />
+				</ProductCard>
+				{/* Or */}
+				<ProductCard product={product}>
+					<ProductImage />
+					<ProducTitle />
+					<ProductButtons />
+				</ProductCard>
+			</div>
+		</div>
+	);
+};
+```
