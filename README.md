@@ -150,7 +150,7 @@ export const routes: Route[] = [
 ];
 ```
 
-# Compund Component Pattern
+# Compound Component Pattern
 
 ```javascript
 const product = {
