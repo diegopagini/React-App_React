@@ -1,7 +1,7 @@
 /** @format */
-import { lazy, LazyExoticComponent } from 'react';
+import { LazyExoticComponent } from 'react';
 
-import { NoLazy } from '../01-layload/pages/NoLazy';
+import { ShoppingPage } from '../02-component-patterns/pages/ShoppingPage';
 
 type JSXComponente = () => JSX.Element;
 
@@ -12,22 +12,11 @@ interface Route {
 	name: string;
 }
 
-// Lazy Load
-const LazyLayout = lazy(
-	() => import(/* webpackChunkName: "LazyLayout" */ '../01-layload/layout/LazyLayout')
-);
-
 export const routes: Route[] = [
 	{
-		to: '/lazyload/',
-		path: '/lazyload/*',
-		Component: LazyLayout,
-		name: 'Lazy Layout',
-	},
-	{
-		to: '/no-lazy',
-		path: 'no-lazy',
-		Component: NoLazy,
-		name: 'No Lazy',
+		to: '/',
+		path: '/',
+		Component: ShoppingPage,
+		name: 'Shopping',
 	},
 ];
