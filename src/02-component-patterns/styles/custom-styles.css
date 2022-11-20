@@ -3,3 +3,13 @@
 .bg-dark {
 	background-color: rgb(56, 56, 56);
 }
+
+.text-white {
+	color: #fff;
+}
+
+.custom-image {
+	border-radius: 20px;
+	padding: 10px;
+	width: calc(100% - 20px);
+}
