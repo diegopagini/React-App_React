@@ -1,10 +1,5 @@
 /** @format */
-import { ReactElement } from 'react';
-
-export interface ProductCardProps {
-	product: Product;
-	children?: ReactElement | ReactElement[];
-}
+import { Props as ProductCardProps } from '../components/ProductCard';
 
 export interface ProductCardHOCProps {
 	({ children, product }: ProductCardProps): JSX.Element;
@@ -13,7 +8,7 @@ export interface ProductCardHOCProps {
 	Buttons: () => JSX.Element;
 }
 
-interface Product {
+export interface Product {
 	id: string;
 	title: string;
 	img?: string;

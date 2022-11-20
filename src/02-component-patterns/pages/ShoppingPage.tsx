@@ -1,4 +1,6 @@
 /** @format */
+import '../styles/custom-styles.css';
+
 import ProductCard from '../components';
 import { ProductButtons } from '../components/ProductButtons';
 import { ProductImage } from '../components/ProductImage';
@@ -29,8 +31,8 @@ export const ShoppingPage = () => {
 					<ProductCard.Title />
 					<ProductCard.Buttons />
 				</ProductCard>
-
-				<ProductCard product={product}>
+				{/* or */}
+				<ProductCard product={product} className='bg-dark'>
 					<ProductImage />
 					<ProducTitle />
 					<ProductButtons />
