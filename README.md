@@ -189,3 +189,37 @@ export const ShoppingPage = () => {
 	);
 };
 ```
+
+# Extensible Styles
+
+```javascript
+export const ShoppingPage = () => {
+	return (
+		<div>
+			<h1>Shopping Store</h1>
+			<hr />
+
+			<div
+				style={{
+					display: 'flex',
+					flexDirection: 'row',
+					flexWrap: 'wrap',
+					gap: '1rem',
+				}}>
+				{/* Differents ways to do it. */}
+				<ProductCard product={product}>
+					<ProductCard.Image className='custom-image' />
+					<ProductCard.Title />
+					<ProductCard.Buttons />
+				</ProductCard>
+				{/* or */}
+				<ProductCard product={product} className='bg-dark text-white'>
+					<ProductImage className='custom-image' />
+					<ProducTitle className='text-bold' />
+					<ProductButtons className='custom-buttons' />
+				</ProductCard>
+			</div>
+		</div>
+	);
+};
+```

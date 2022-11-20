@@ -27,15 +27,15 @@ export const ShoppingPage = () => {
 				}}>
 				{/* Differents ways to do it. */}
 				<ProductCard product={product}>
-					<ProductCard.Image />
+					<ProductCard.Image className='custom-image' />
 					<ProductCard.Title />
 					<ProductCard.Buttons />
 				</ProductCard>
 				{/* or */}
-				<ProductCard product={product} className='bg-dark'>
+				<ProductCard product={product} className='bg-dark text-white'>
 					<ProductImage className='custom-image' />
-					<ProducTitle className='text-white' />
-					<ProductButtons />
+					<ProducTitle className='text-bold' />
+					<ProductButtons className='custom-buttons' />
 				</ProductCard>
 			</div>
 		</div>
