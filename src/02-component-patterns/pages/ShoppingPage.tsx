@@ -37,6 +37,21 @@ export const ShoppingPage = () => {
 					<ProducTitle className='text-bold' />
 					<ProductButtons className='custom-buttons' />
 				</ProductCard>
+				{/* or */}
+				<ProductCard
+					product={product}
+					style={{
+						backgroundColor: '#ff00ff',
+						padding: '1rem',
+					}}>
+					<ProductImage />
+					<ProducTitle />
+					<ProductButtons
+						style={{
+							justifyContent: 'space-between',
+						}}
+					/>
+				</ProductCard>
 			</div>
 		</div>
 	);
