@@ -52,7 +52,6 @@ export const ShoppingPage = () => {
 		<div>
 			<h1>Shopping Store</h1>
 			<hr />
-
 			<div
 				style={{
 					display: 'flex',
@@ -68,19 +67,14 @@ export const ShoppingPage = () => {
 					</ProductCard>
 				))}
 			</div>
-
 			<div className='shopping-cart'>
-				{products.map((product) => (
-					<ProductCard key={product.id} product={product} style={{ width: '100px' }}>
+				{Object.entries(shoppingCart).map(([key, product]) => (
+					<ProductCard key={key} product={product} style={{ width: '100px' }}>
 						<ProductImage />
 						<ProducTitle />
-						<ProductButtons />
+						<ProductButtons style={{ display: 'flex', justifyContent: 'center' }} />
 					</ProductCard>
 				))}
-			</div>
-
-			<div>
-				<code>{JSON.stringify(shoppingCart, null, 5)}</code>
 			</div>
 		</div>
 	);
