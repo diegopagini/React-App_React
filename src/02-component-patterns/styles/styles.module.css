@@ -60,3 +60,12 @@
 .buttonAdd:hover {
 	background-color: rgba(0, 0, 0, 0.1);
 }
+
+.disabled {
+	border-color: gray !important;
+	border-left: 1px solid black !important;
+	color: gray !important;
+	cursor: default !important;
+	pointer-events: none;
+	transition: all 250ms ease-in;
+}
