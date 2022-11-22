@@ -60,7 +60,11 @@ export const ShoppingPage = () => {
 					gap: '1rem',
 				}}>
 				{products.map((product) => (
-					<ProductCard key={product.id} product={product} onChange={onProductCountChange}>
+					<ProductCard
+						key={product.id}
+						product={product}
+						onChange={onProductCountChange}
+						value={shoppingCart[product.id]?.count || 0}>
 						<ProductImage />
 						<ProducTitle />
 						<ProductButtons />
@@ -69,7 +73,12 @@ export const ShoppingPage = () => {
 			</div>
 			<div className='shopping-cart'>
 				{Object.entries(shoppingCart).map(([key, product]) => (
-					<ProductCard key={key} product={product} style={{ width: '100px' }}>
+					<ProductCard
+						key={key}
+						product={product}
+						style={{ width: '100px' }}
+						value={product.count}
+						onChange={onProductCountChange}>
 						<ProductImage />
 						<ProducTitle />
 						<ProductButtons style={{ display: 'flex', justifyContent: 'center' }} />
