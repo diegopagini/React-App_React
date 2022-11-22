@@ -20,12 +20,19 @@ export const ShoppingPage = () => {
 					count: 4,
 					maxCount: 10,
 				}}>
-				{() => (
-					<>
+				{({ reset }) => (
+					<div
+						style={{
+							alignItems: 'center',
+							display: 'flex',
+							justifyContent: 'center',
+							flexDirection: 'column',
+						}}>
 						<ProductImage />
 						<ProducTitle />
 						<ProductButtons />
-					</>
+						<button onClick={reset}>Reset</button>
+					</div>
 				)}
 			</ProductCard>
 		</div>
