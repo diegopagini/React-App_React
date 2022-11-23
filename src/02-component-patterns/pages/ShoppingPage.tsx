@@ -20,7 +20,7 @@ export const ShoppingPage = () => {
 					count: 4,
 					maxCount: 10,
 				}}>
-				{({ reset }) => (
+				{({ reset, increaseBy, count, isMaxCountReached }) => (
 					<div
 						style={{
 							alignItems: 'center',
@@ -32,6 +32,9 @@ export const ShoppingPage = () => {
 						<ProducTitle />
 						<ProductButtons />
 						<button onClick={reset}>Reset</button>
+						<button onClick={() => increaseBy(-2)}>-2</button>
+						{!isMaxCountReached && <button onClick={() => increaseBy(+2)}>+2</button>}
+						<span>{count}</span>
 					</div>
 				)}
 			</ProductCard>
