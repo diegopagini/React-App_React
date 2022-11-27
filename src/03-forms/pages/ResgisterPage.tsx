@@ -13,14 +13,14 @@ export const ResgisterPage = () => {
 
 	const { name, email, password1, password2 } = registerData;
 
-	const onChange = (event: ChangeEvent<HTMLInputElement>) => {
+	const onChange = (event: ChangeEvent<HTMLInputElement>): void => {
 		setRegisterData((prev) => ({
 			...prev,
 			[event.target.name]: event.target.value,
 		}));
 	};
 
-	const onSubmit = (event: FormEvent<HTMLFormElement>) => {
+	const onSubmit = (event: FormEvent<HTMLFormElement>): void => {
 		event.preventDefault();
 		console.log(registerData);
 	};
