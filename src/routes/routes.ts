@@ -1,7 +1,7 @@
 /** @format */
 import { LazyExoticComponent } from 'react';
 
-import { ShoppingPage } from '../02-component-patterns/pages/ShoppingPage';
+import { ResgisterPage } from '../03-forms/pages/ResgisterPage';
 
 type JSXComponente = () => JSX.Element;
 
@@ -16,7 +16,7 @@ export const routes: Route[] = [
 	{
 		to: '/',
 		path: '/',
-		Component: ShoppingPage,
-		name: 'Shopping',
+		Component: ResgisterPage,
+		name: 'Register Page',
 	},
 ];
