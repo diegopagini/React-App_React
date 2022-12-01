@@ -18,12 +18,12 @@ export const routes: Route[] = [
 		to: '/',
 		path: '/',
 		Component: FormikBasicPage,
-		name: 'Formik Basic Page',
+		name: 'Formik Basic',
 	},
 	{
 		to: '/yup',
 		path: '/yup',
 		Component: FormikYupPage,
-		name: 'Formik Yup Page',
+		name: 'Formik Yup',
 	},
 ];
