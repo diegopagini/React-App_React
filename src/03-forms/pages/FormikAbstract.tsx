@@ -1,9 +1,10 @@
 /** @format */
 import '../styles/styles.css';
 
-import { ErrorMessage, Field, Form, Formik } from 'formik';
+import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
 
+import { MyCheckboxInput } from '../components/MyCheckboxInput';
 import { MySelectInput } from '../components/MySelectInput';
 import { MyTextInput } from '../components/MyTextInput';
 
@@ -50,11 +51,7 @@ export const FormikAbstract = () => {
 							<option value='it-jr'>IT Jr</option>
 						</MySelectInput>
 
-						<label htmlFor='terms'>
-							<Field name='terms' type='checkbox' id='terms' />
-							Terms and conditions
-						</label>
-						<ErrorMessage name='terms' component={'span'} />
+						<MyCheckboxInput name='terms' label='Terms & conditions' />
 
 						<button type='submit'>Submit</button>
 					</Form>
