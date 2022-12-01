@@ -33,7 +33,7 @@ export const FormikAbstract = () => {
 					jobType: Yup.string().required().notOneOf(['it-jr'], 'Esta opción no es permitida.'),
 					terms: Yup.boolean().oneOf([true], 'Debe de aceptar los terminos y condiciones.'),
 				})}>
-				{(formik) => (
+				{() => (
 					<Form>
 						<MyTextInput label='First Name' name='firstName' placeholder='Name' />
 
