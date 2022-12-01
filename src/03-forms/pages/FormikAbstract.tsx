@@ -4,7 +4,10 @@ import '../styles/styles.css';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
 
-export const FormikComponents = () => {
+import { MySelectInput } from '../components/MySelectInput';
+import { MyTextInput } from '../components/MyTextInput';
+
+export const FormikAbstract = () => {
 	return (
 		<div>
 			<h1>Formik Yup Tutorial</h1>
@@ -33,27 +36,19 @@ export const FormikComponents = () => {
 				})}>
 				{(formik) => (
 					<Form>
-						<label htmlFor='firstName'>First Name</label>
-						<Field name='firstName' type='text' id='firstName' placeholder='First Name' />
-						<ErrorMessage name='firstName' component={'span'} />
+						<MyTextInput label='First Name' name='firstName' placeholder='Name' />
 
-						<label htmlFor='lastName'>Last Name</label>
-						<Field name='lastName' type='text' id='lastName' />
-						<ErrorMessage name='lastName' component={'span'} />
+						<MyTextInput label='Last Name' name='lastName' placeholder='LastName' />
 
-						<label htmlFor='email'>Email Address</label>
-						<Field name='email' type='email' id='email' />
-						<ErrorMessage name='email' component={'span'} />
+						<MyTextInput label='email' name='email' placeholder='Email' type='email' />
 
-						<label htmlFor='jobType'>Job Type</label>
-						<Field name='jobType' as='select' id='jobType'>
+						<MySelectInput name='jobType' label='Job Type' id='jobType'>
 							<option value={''}>Pick somenthing</option>
 							<option value='developer'>Developer</option>
 							<option value='designer'>Designer</option>
 							<option value='it-senior'>IT Senior</option>
 							<option value='it-jr'>IT Jr</option>
-						</Field>
-						<ErrorMessage name='jobType' component={'span'} />
+						</MySelectInput>
 
 						<label htmlFor='terms'>
 							<Field name='terms' type='checkbox' id='terms' />
