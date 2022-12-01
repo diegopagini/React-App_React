@@ -1,10 +1,32 @@
 /** @format */
 import '../styles/styles.css';
 
-import { useFormik } from 'formik';
+import { FormikErrors, useFormik } from 'formik';
+
+interface FormValues {
+	firstName: string;
+	lastName: string;
+	email: string;
+}
 
 export const FormikBasicPage = () => {
-	const { handleChange, values, handleSubmit } = useFormik({
+	const validate = ({ firstName, lastName, email }: FormValues) => {
+		const errors: FormikErrors<FormValues> = {};
+		// firstName
+		if (!firstName) errors.firstName = 'Required';
+		else if (firstName.length >= 15) errors.firstName = 'Must be 15 characters or less';
+		// lastName
+		if (!lastName) errors.lastName = 'Required';
+		else if (firstName.length >= 12) errors.lastName = 'Must be 12 characters or less';
+		// email
+		if (!email) errors.email = 'Required';
+		else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email))
+			errors.email = 'Invalid email address';
+
+		return errors;
+	};
+
+	const { handleChange, values, handleSubmit } = useFormik<FormValues>({
 		initialValues: {
 			firstName: '',
 			lastName: '',
@@ -13,6 +35,7 @@ export const FormikBasicPage = () => {
 		onSubmit: (values) => {
 			console.log(values);
 		},
+		validate,
 	});
 
 	return (
