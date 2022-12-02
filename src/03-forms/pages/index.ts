@@ -1,8 +1,9 @@
 /** @format */
 
-export { RegisterFormikPage } from './RegisterFormikPage';
-export { FormikComponents } from './FormikComponents';
+export { DynamicForm } from './DynamicForm';
 export { FormikAbstract } from './FormikAbstract';
-export { FormikYupPage } from './FormikYupPage';
 export { FormikBasicPage } from './FormikBasicPage';
+export { FormikComponents } from './FormikComponents';
+export { FormikYupPage } from './FormikYupPage';
+export { RegisterFormikPage } from './RegisterFormikPage';
 export { RegisterPage } from './RegisterPage';
