@@ -1,84 +1,48 @@
 /** @format */
 import '../styles/styles.css';
 
-import { FormEvent } from 'react';
+import { Form, Formik } from 'formik';
+import * as Yup from 'yup';
 
-import { useForm } from '../hooks/useForm';
-
-interface RegisterForm {
-	name: string;
-	email: string;
-	password1: string;
-	password2: string;
-}
+import { MyTextInput } from '../components';
 
 export const RegisterFormikPage = () => {
-	const { onChange, formData, resetForm, isValidEmail } = useForm<RegisterForm>({
-		name: '',
-		email: '',
-		password1: '',
-		password2: '',
-	});
-	const { name, email, password1, password2 } = formData;
-
-	const onSubmit = (event: FormEvent<HTMLFormElement>): void => {
-		event.preventDefault();
-		console.log(formData);
-	};
-
 	return (
 		<div>
-			<h1>Resgister Page</h1>
-			<form noValidate onSubmit={onSubmit}>
-				<input
-					name='name'
-					type='text'
-					placeholder='Name'
-					value={name}
-					onChange={onChange}
-					className={`${name.trim().length <= 0 && 'has-error'}`}
-				/>
-				{name.trim().length <= 0 && <span>Este campo es requerido.</span>}
+			<h1>Register Formik Page</h1>
 
-				<input
-					name='email'
-					type='email'
-					placeholder='Email'
-					value={email}
-					onChange={onChange}
-					className={`${!isValidEmail(email) && 'has-error'}`}
-				/>
-				{!isValidEmail(email) && <span>Este campo es requerido.</span>}
+			<Formik
+				initialValues={{
+					name: '',
+					email: '',
+					password1: '',
+					password2: '',
+				}}
+				onSubmit={(values) => {
+					console.log(values);
+				}}
+				validationSchema={Yup.object({
+					name: Yup.string().required().min(2).max(15),
+					email: Yup.string().required().email(),
+					password1: Yup.string().required().min(6),
+					password2: Yup.string()
+						.oneOf([Yup.ref('password1')])
+						.required(),
+				})}>
+				{({ handleReset }) => (
+					<Form>
+						<MyTextInput label='Name' name='name' placeholder='Name' />
+						<MyTextInput label='email' name='email' placeholder='Email' type='email' />
+						<MyTextInput label='password' name='password1' placeholder='Password' type='password' />
+						<MyTextInput label='password' name='password2' placeholder='Password' type='password' />
 
-				<input
-					name='password1'
-					type='password'
-					placeholder='Password'
-					value={password1}
-					onChange={onChange}
-				/>
-				{password1.trim().length <= 0 && <span>Este campo es requerido.</span>}
-				{password1.trim().length < 6 && password1.trim().length > 0 && (
-					<span>Mínimo 6 caracteres.</span>
+						<button type='submit'>Submit</button>
+						<button type='button' onClick={handleReset}>
+							Reset
+						</button>
+					</Form>
 				)}
-
-				<input
-					name='password2'
-					type='password'
-					placeholder='Repeat Password'
-					value={password2}
-					onChange={onChange}
-				/>
-				{password2.trim().length <= 0 && <span>Este campo es requerido.</span>}
-				{password2.trim().length > 0 && password2 !== password1 && (
-					<span>Deben de ser iguales.</span>
-				)}
-
-				<button type='submit'>Submit</button>
-				<button type='button' onClick={resetForm}>
-					Reset
-				</button>
-			</form>
+			</Formik>
 		</div>
 	);
 };
