@@ -12,7 +12,7 @@ interface RegisterForm {
 	password2: string;
 }
 
-export const ResgisterPage = () => {
+export const RegisterPage = () => {
 	const { onChange, formData, resetForm, isValidEmail } = useForm<RegisterForm>({
 		name: '',
 		email: '',
