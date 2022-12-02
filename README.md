@@ -2,7 +2,7 @@
 
 # Router
 
-```javascript
+```tsx
 <Suspense fallback={<span>Loading...</span>}>
 	<BrowserRouter>
 		<div className='main-layout'>
@@ -33,7 +33,7 @@
 
 # Nested Routes
 
-```javascript
+```tsx
 export const routes: Route[] = [
 	{
 		to: '/lazyload/',
@@ -111,7 +111,7 @@ export const LazyLayout = () => {
 
 # Lazy Load
 
-```javascript
+```typescript
 import { lazy, LazyExoticComponent } from 'react';
 
 type JSXComponente = () => JSX.Element;
@@ -152,7 +152,7 @@ export const routes: Route[] = [
 
 # Compound Component Pattern
 
-```javascript
+```tsx
 const product = {
 	id: '1',
 	title: 'Coffee Mug - Card',
@@ -192,7 +192,7 @@ export const ShoppingPage = () => {
 
 # Extensible Styles
 
-```javascript
+```tsx
 export const ShoppingPage = () => {
 	return (
 		<div>
@@ -241,7 +241,7 @@ export const ShoppingPage = () => {
 
 # Control Props
 
-```javascript
+```tsx
 export const ShoppingPage = () => {
 	return (
 		<div>
@@ -278,7 +278,7 @@ export const ShoppingPage = () => {
 
 # Forms
 
-```typescript
+```tsx
 /** @format */
 import '../styles/styles.css';
 
